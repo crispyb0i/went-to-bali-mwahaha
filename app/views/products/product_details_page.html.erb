@@ -1,0 +1,13 @@
+<div id="extra_detail" class="container">
+  <div class="row">
+    <div class="section">
+      <h4><%= product.name %></h4>
+      <img src="<%=product.image%>" alt="<%=product.name%>">
+      <p>
+        <b>Description</b>
+      </p>
+      <p><%= product.description %></p>
+      <p><b>Price:</b><%= number_to_currency product.price %></p>
+    </div>
+  </div>
+</div>
