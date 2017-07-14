@@ -1,0 +1,5 @@
+console.log("hello")
+$("#delete_<%=@item.id%>").hide();
+$("#total").html("<p id='total'>Your Total: <%= number_to_currency current_order.total_price %></p>");
+
+// $("#navbar_cart").html("<li id='navbar_cart'><%= link_to 'Cart | Total items: #{ cart_items }', cart_path %></li>");
