@@ -3,6 +3,9 @@
 <div class="row">
   <div class="section">
     <% @products.each do |product|%>
+    <div id="product_<%=product.id%>">
+
+
       <div class="col s4">
         <h4><%= product.name %></h4>
         <p><%= number_to_currency product.price %></p>
@@ -11,7 +14,15 @@
             <%= f.hidden_field :product_id, value: product.id %>
             <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", id: "add_to_cart" %>
             <span class="waves-effect waves-light btn"><%= f.submit "Add to cart", remote: true %></span>
+            <% if current_user && current_user.admin %>
+       <br>
+         <p>
+           <%= link_to "Edit", edit_product_path(product),:class=>"waves-effect waves-light btn"%>
+           <%= link_to "Delete", product_path(product), remote: true, :data => {:confirm => "Are you sure?",                                           :method => "delete"}, :class=>"waves-effect waves-light btn red darken-2"%>
+         </p>
           <% end %>
+        <% end %>
+      </div>
       </div>
     <% end %>
   </div>
