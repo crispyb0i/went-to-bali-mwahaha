@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="section">
+      <img style="display:block; margin:auto;"src="<%=@product.image%>" alt="<%=@product.name%>">
+      <p>
+        <b>Description</b>
+      </p>
+      <p><%= @product.description %></p>
+      <p><b>Price:</b><%= number_to_currency @product.price %></p>
+    </div>
+  </div>
+</div>

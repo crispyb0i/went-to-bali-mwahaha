@@ -1,18 +1,18 @@
-<h3>Products</h3>
+<h3 style="text-align:center;">Products</h3>
 <%= link_to "Add a product", new_product_path%>
 <div class="row">
   <div class="section">
     <% @products.each do |product|%>
     <div id="product_<%=product.id%>">
+        <h4 style="text-align:center;"><%= product.name %></h4>
+        <p style="text-align:center;"><%= number_to_currency product.price %></p>
+        <div id="extra_detail">
 
-
-      <div class="col s4">
-        <h4><%= product.name %></h4>
-        <p><%= number_to_currency product.price %></p>
-          <%= link_to "See more details...", product_path(product), remote: true %>
+        </div>
+          <%= link_to "See more details...", product_path(product), remote: true, id: "see_details" %>
           <%= form_for @order_item, remote:true do |f| %>
             <%= f.hidden_field :product_id, value: product.id %>
-            <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!", id: "add_to_cart" %>
+            <%= f.number_field :quantity, placeholder: "Input quantity greater than 0", id: "add_to_cart" %>
             <span class="waves-effect waves-light btn"><%= f.submit "Add to cart", remote: true %></span>
             <% if current_user && current_user.admin %>
        <br>
@@ -22,7 +22,9 @@
          </p>
           <% end %>
         <% end %>
-      </div>
+        <hr>
+        <br>
+        <br>
       </div>
     <% end %>
   </div>
