@@ -6,8 +6,7 @@
     <div id="product_<%=product.id%>">
         <h4 style="text-align:center;"><%= product.name %></h4>
         <p style="text-align:center;"><%= number_to_currency product.price %></p>
-        <div id="extra_detail">
-
+        <div id="extra_detail_<%=product.id%>">
         </div>
           <%= link_to "See more details...", product_path(product), remote: true, id: "see_details" %>
           <%= form_for @order_item, remote:true do |f| %>

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("test")
-   $('#extra_detail').html('<%= j render "product_details_page", :product=>@product %>')
-   $('#see_details').hide()
+   $('#extra_detail_<%=@product.id%>').html('<%= j render "product_details_page", :product=>@product %>')
+   $('#see_details_<%=@product.id%>').hide()
 });
